@@ -1,0 +1,51 @@
+{
+    "name": "xqkeji/xq-com-hugerte",
+    "description": "新齐通用后台管理页面系统的使用的在线编辑器hugerte的js、css等前端程序的composer包。",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "xqkeji\\composer\\hugerte\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "xqkeji.cn"
+        }
+    ],
+    "extra": {
+        "post-package-install":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","copyDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-hugerte/src/":"resource/hugerte/"
+                }]
+            }
+        ],
+        "post-package-update":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","rmDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-hugerte/src/":"resource/hugerte/"
+                }]
+            },
+            {
+                "cmd":["xqkeji\\composer\\Asset","copyDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-hugerte/src/":"resource/hugerte/"
+                }]
+            }
+        ],
+        "post-package-uninstall":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","rmDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-hugerte/src/":"resource/hugerte/"
+                }]
+            }
+        ]
+    },
+    "require": {
+        "xqkeji/composer":"^1.0"
+    }
+}
